@@ -2,11 +2,11 @@ export const SAMPLE = `# Project update
 
 Hi team,
 Quick summary of where things stand.
-Each of these lines was typed with a single Enter.
+Here is what changed this week.
 
 ## What shipped
 
-- **Line breaks** now survive the paste
+- **New onboarding** is live
 - Lists keep their shape
   even when an item wraps onto a second line
 - Code keeps its indentation
@@ -16,7 +16,7 @@ Each of these lines was typed with a single Enter.
 3. Paste anywhere
 
 
-Two blank lines above this paragraph are kept as space.
+Next up is the mobile release.
 
 > Quotes work too.
 > Across multiple lines.
@@ -29,7 +29,7 @@ function greet(name) {
 
 | Feature | Status |
 | --- | --- |
-| Line breaks | ✅ |
+| Onboarding | ✅ |
 | Tables | ✅ |
 
 - [x] Ship it
