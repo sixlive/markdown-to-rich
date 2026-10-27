@@ -1,0 +1,316 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --border: #d9dce1;
+  --text: #1d2125;
+  --muted: #626f86;
+  --accent: #0b57d0;
+  --accent-text: #ffffff;
+  --error: #c9372c;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161a1d;
+    --surface: #1f2428;
+    --border: #384048;
+    --text: #dee4ea;
+    --muted: #96a2b0;
+    --accent: #7aa7f7;
+    --accent-text: #0b1220;
+    --error: #fd9891;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 17px;
+}
+
+/* Anchors the privacy tooltip at the page gutter so it never overflows on phones. */
+.brand {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+
+.privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  cursor: help;
+}
+
+.privacy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.privacy-details {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 10;
+  width: min(320px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.14);
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.12s, visibility 0.12s;
+}
+
+.privacy-details strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.privacy-details .fine a {
+  color: inherit;
+}
+
+.privacy-details .fine {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.privacy:hover .privacy-details,
+.privacy:focus-within .privacy-details {
+  visibility: visible;
+  opacity: 1;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 0 20px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  color: var(--muted);
+}
+
+.options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.panes {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 20px 20px;
+  min-height: 0;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+#input-pane.dropping textarea {
+  outline: 2px dashed var(--accent);
+  outline-offset: -2px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+
+.pane-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  min-height: 32px;
+}
+
+.pane-head h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--muted);
+}
+
+button.link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#status {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#status.error {
+  color: var(--error);
+}
+
+textarea,
+.paper {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  overflow: auto;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  background: var(--surface);
+  color: var(--text);
+  font: 13px/1.6 ui-monospace, Menlo, Consolas, monospace;
+}
+
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+/* The preview shows the exact HTML that gets copied, so it renders on white
+   paper with document colors regardless of the app theme. */
+.paper {
+  background: #ffffff;
+  color: #1d2125;
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+}
+
+/* Long URLs and unbroken tokens would otherwise push past the pane edge. */
+#preview {
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  color: #8590a2;
+}
+
+/* The paper stays white in dark mode, so use the light-theme accent here. */
+.empty button.link {
+  color: #0b57d0;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    padding: 12px 16px;
+  }
+
+  .footer {
+    padding: 0 16px 12px;
+  }
+
+  .panes {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(260px, 1fr) minmax(260px, 1fr);
+    padding: 12px 16px;
+  }
+}

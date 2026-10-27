@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown to Rich Text — Free Converter for Slack, Docs &amp; Email</title>
+    <meta name="description" content="Convert Markdown to rich text that pastes cleanly into Slack, Google Docs, Word and Gmail with line breaks and spacing intact. Free, private, and runs entirely in your browser." />
+    <meta name="author" content="TJ Miller" />
+    <meta name="theme-color" content="#0b57d0" />
+    <link rel="canonical" href="https://markdowntorich.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Markdown to Rich" />
+    <meta property="og:url" content="https://markdowntorich.com/" />
+    <meta property="og:title" content="Markdown to Rich Text — keeps your line breaks" />
+    <meta property="og:description" content="Paste Markdown, copy rich text. Line breaks and spacing survive the paste into Slack, Google Docs, Word and Gmail. Runs entirely in your browser." />
+    <meta property="og:image" content="https://markdowntorich.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Markdown on the left converted to formatted rich text on the right" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Markdown to Rich Text — keeps your line breaks" />
+    <meta name="twitter:description" content="Paste Markdown, copy rich text. Line breaks and spacing survive the paste into Slack, Google Docs, Word and Gmail." />
+    <meta name="twitter:image" content="https://markdowntorich.com/og.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Markdown to Rich Text",
+        "url": "https://markdowntorich.com/",
+        "description": "Convert Markdown to rich text that pastes cleanly into Slack, Google Docs, Word and Gmail with line breaks and spacing intact.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires a modern web browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": { "@type": "Person", "name": "TJ Miller", "url": "https://www.tjmiller.me" },
+        "isAccessibleForFree": true,
+        "sameAs": "https://github.com/sixlive/markdown-to-rich"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <h1>Markdown to Rich Text</h1>
+        <div class="privacy" tabindex="0" aria-describedby="privacy-details">
+          <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1.5 1.5 0 0 0-1.5 1.5v6A1.5 1.5 0 0 0 4 15h8a1.5 1.5 0 0 0 1.5-1.5v-6A1.5 1.5 0 0 0 12 6h-.5V4.5A3.5 3.5 0 0 0 8 1Zm2 5H6V4.5a2 2 0 1 1 4 0V6Z"/></svg>
+          Runs in your browser
+          <div id="privacy-details" role="tooltip" class="privacy-details">
+            <strong>Your text never leaves your device.</strong>
+            Conversion happens entirely in this browser tab. Nothing you type is uploaded, logged or sent to a server, and the page is locked down so it can't make network requests.
+            <span class="fine">Your draft is saved only in this browser's local storage. Images in your Markdown load from their own URLs. Don't take our word for it: <a href="https://github.com/sixlive/markdown-to-rich">the code is open source</a>.</span>
+          </div>
+        </div>
+      </div>
+      <div class="options">
+        <label title="A single Enter becomes a new line, like in a chat app or email.">
+          <input type="checkbox" id="opt-line-breaks" checked /> Enter = new line
+        </label>
+        <label title="Extra blank lines between paragraphs are kept as empty lines.">
+          <input type="checkbox" id="opt-blank-lines" checked /> Keep extra blank lines
+        </label>
+      </div>
+    </header>
+
+    <main class="panes">
+      <section class="pane" id="input-pane">
+        <div class="pane-head">
+          <h2>Markdown</h2>
+          <div class="actions">
+            <button type="button" id="open-file" title="Open a .md or .txt file. It's read on your device, never uploaded.">Open file</button>
+            <input type="file" id="file" hidden />
+            <button type="button" id="clear">Clear</button>
+          </div>
+        </div>
+        <textarea id="markdown" spellcheck="false" placeholder="Type or paste Markdown here, or drop a .md file…" aria-label="Markdown input"></textarea>
+      </section>
+
+      <section class="pane">
+        <div class="pane-head">
+          <h2>Rich text</h2>
+          <div class="actions">
+            <span id="status" role="status" aria-live="polite"></span>
+            <button type="button" id="copy" class="primary" disabled>Copy rich text</button>
+          </div>
+        </div>
+        <div class="paper">
+          <div id="empty" class="empty">Your formatted text will appear here, or <button type="button" id="sample" class="link">try a sample</button>.</div>
+          <div id="preview" aria-label="Rich text preview"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Free and private. Paste into Slack, Google Docs, Word, Gmail and more.</span>
+      <span>Built by <a href="https://www.tjmiller.me" rel="author">TJ Miller</a> · <a href="https://github.com/sixlive/markdown-to-rich">Open source on GitHub</a></span>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
