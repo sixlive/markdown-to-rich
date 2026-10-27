@@ -10,7 +10,7 @@ Convert Markdown to rich text that keeps its line breaks when you paste it into 
 - Tables, task lists and strikethrough (GitHub Flavored Markdown).
 - Open or drop a `.md` file.
 
-Everything runs in your browser. A Content Security Policy (`connect-src 'none'`) blocks the page from making network requests.
+Everything runs in your browser and nothing you type is sent anywhere. A Content Security Policy only lets the page reach its [Umami](https://umami.is) analytics server, which counts page views.
 
 ## Development
 

@@ -2,16 +2,20 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 
+// Umami page-view analytics: the only third party allowed to run or receive data.
+const ANALYTICS = 'https://analytics.echolabs.dev';
+
 // The privacy promise ("your text never leaves your device") is enforced, not
-// just stated: connect-src 'none' blocks fetch, XHR, WebSockets and beacons.
-// Images stay open because Markdown can reference remote images.
+// just stated: connect-src only allows the analytics host, so the page can't
+// send anything anywhere else. Images stay open because Markdown can reference
+// remote images.
 const CSP = [
   "default-src 'self'",
-  "script-src 'self'",
+  `script-src 'self' ${ANALYTICS}`,
   "style-src 'self' 'unsafe-inline'",
   'img-src * data: blob:',
   "font-src 'self'",
-  "connect-src 'none'",
+  `connect-src ${ANALYTICS}`,
   "object-src 'none'",
   "base-uri 'none'",
   "form-action 'none'",
