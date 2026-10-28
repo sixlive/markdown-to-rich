@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy &amp; Terms — Markdown to Rich Text</title>
+    <meta name="description" content="What Markdown to Rich Text collects (page view counts, nothing you type) and the terms for using it." />
+    <link rel="canonical" href="https://www.markdowntorich.com/privacy" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <style>
+      :root { --bg: #f4f5f7; --text: #1d2125; --muted: #626f86; --accent: #0b57d0; }
+      @media (prefers-color-scheme: dark) { :root { --bg: #161a1d; --text: #dee4ea; --muted: #96a2b0; --accent: #7aa7f7; } }
+      body { margin: 0; padding: 32px 16px 48px; background: var(--bg); color: var(--text);
+        font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      main { max-width: 640px; margin: 0 auto; }
+      h1 { font-size: 26px; margin: 0 0 4px; }
+      h2 { font-size: 18px; margin: 32px 0 8px; }
+      p, ul { margin: 0 0 12px; }
+      ul { padding-left: 20px; }
+      .muted { color: var(--muted); }
+      a { color: var(--accent); }
+      .back { display: inline-block; margin-bottom: 24px; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="/">← Back to the converter</a>
+      <h1>Privacy &amp; Terms</h1>
+      <p class="muted">Last updated October 28, 2026</p>
+
+      <p>Markdown to Rich Text is a free tool run by me, <a href="https://www.tjmiller.me">TJ Miller</a>, as an individual. This page lists everything that touches a server when you use it.</p>
+
+      <h2>What you type stays on your device</h2>
+      <p>Conversion happens in your browser tab. The Markdown you type, paste or open from a file is never uploaded, logged or sent to me. The site's Content Security Policy blocks the page from sending data anywhere except the analytics server described below. <a href="https://github.com/sixlive/markdown-to-rich">The code is open source</a> if you'd like to check.</p>
+
+      <h2>What is collected</h2>
+      <ul>
+        <li><strong>Page view counts.</strong> I run my own copy of <a href="https://umami.is">Umami</a> to count visits. For each page view it records the page address and title, the site that linked you here, your browser language and screen size, and works out your browser, operating system, device type and approximate location (country, region and city) from the request. It doesn't use cookies or store your IP address. It does combine your IP address and browser details with a secret that changes every month to make an anonymous visitor ID, so repeat visits within a month count as one visitor. Nothing you type is included.</li>
+        <li><strong>Hosting.</strong> The site is served by <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>. Like any web host, Cloudflare sees your IP address and the pages you request so it can deliver them and protect the site from abuse.</li>
+      </ul>
+      <p>I don't sell data, run ads or use tracking cookies, and there are no accounts, so nothing ties these counts to who you are.</p>
+
+      <h2>What is stored in your browser</h2>
+      <p>Your current draft and option settings are saved in your browser's local storage so they're still there when you come back. They never leave your device. The Clear button empties the draft, and clearing your browser's site data removes it entirely.</p>
+
+      <h2>Images in your Markdown</h2>
+      <p>If your Markdown includes an image from another website, your browser loads it directly from that website, which can see your IP address like any other image request. Leave remote images out if that matters to you.</p>
+
+      <h2>Terms</h2>
+      <p>The tool is free to use for any lawful purpose. It's provided as is, without warranty of any kind. I can't promise it will always be available or that the output will be exactly what you expect, so check anything important before you send it. To the extent the law allows, I'm not liable for any loss that comes from using it. The source code is separately available under the <a href="https://github.com/sixlive/markdown-to-rich/blob/main/LICENSE">MIT License</a>.</p>
+
+      <h2>Changes and questions</h2>
+      <p>If this page changes, the date at the top will change with it. Questions can go in a <a href="https://github.com/sixlive/markdown-to-rich/issues">GitHub issue</a>.</p>
+    </main>
+  </body>
+</html>
